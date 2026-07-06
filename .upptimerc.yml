@@ -16,16 +16,16 @@
 # ──────────────────────────────────────────────────────────────────────────────
 
 # GitHub user/org and repository that hold the monitoring data. Both required.
-owner: your-username
-repo: your-status-repo
+owner: Audaxic
+repo: status-page
 
 # The services to monitor. Each entry becomes a row/card on the page.
 # `name` + `url` are enough; the commented fields show the common optional ones.
 sites:
-  - name: Website
-    url: https://example.com
+  - name: Audaxic Brand Site
+    url: https://audaxic.com
   - name: API
-    url: https://api.example.com/health
+    url: https://memory-api.audaxic.com/health
     # method: GET                     # HTTP verb (default GET)
     # expectedStatusCodes: [200, 401] # codes that count as "up" (default 2xx)
     # maxResponseTime: 5000           # ms before a response is "degraded"
@@ -55,7 +55,7 @@ sites:
 
 status-website:
   # Brand name beside the logo; also the browser tab title ("<name> — Status").
-  name: Example
+  name: Audaxic
   # cname: status.example.com             # custom domain (Velvet writes the CNAME)
   # logoUrl: https://example.com/logo.svg # shown instead of the name; links to /
   # Navbar links (top-right). The logo always links to "/". `[]` = no links.
