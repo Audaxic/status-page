@@ -24,7 +24,9 @@ repo: status-page
 sites:
   - name: Audaxic Brand Site
     url: https://audaxic.com
-  - name: API
+  - name: Audaxic Memory Site
+    url: https://memory.audaxic.com
+  - name: Memory API
     url: https://memory-api.audaxic.com/health
     # method: GET                     # HTTP verb (default GET)
     # expectedStatusCodes: [200, 401] # codes that count as "up" (default 2xx)
