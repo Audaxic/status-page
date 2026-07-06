@@ -39,6 +39,8 @@ jobs:
         with:
           config: .upptimerc.yml
           output: velvet-dist
+      - name: Add favicon to build
+        run: cp assets/favicon.ico velvet-dist/favicon.ico
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
