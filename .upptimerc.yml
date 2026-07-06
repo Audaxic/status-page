@@ -57,7 +57,7 @@ status-website:
   # Brand name beside the logo; also the browser tab title ("<name> — Status").
   name: Audaxic
   cname: status.audaxic.com             # custom domain (Velvet writes the CNAME)
-  # logoUrl: https://example.com/logo.svg # shown instead of the name; links to /
+  logoUrl: https://audaxic.com/assets/logo.png # shown instead of the name; links to /
   # Navbar links (top-right). The logo always links to "/". `[]` = no links.
   # To add some:
   #   navbar:
