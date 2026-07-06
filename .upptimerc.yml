@@ -1,0 +1,102 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Velvet + Upptime status page configuration.
+#
+# This single file drives both the monitoring (Upptime) and the look (Velvet).
+# Every field is commented below; the FULL reference — all optional per-site
+# check options and the complete `velvet:` block — is here:
+#   https://github.com/phranck/velvet/blob/main/CONFIGURATION.md
+#
+# Setup (one time):
+#   1. Replace `owner` / `repo` with YOUR repository.
+#   2. List your services under `sites:`.
+#   3. Adjust the `velvet:` block (colours, layout, per-service icons).
+#   4. Add a `GH_PAT` repo secret: a classic PAT with `repo` + `workflow` scopes.
+#   5. Settings → Pages → Source = "GitHub Actions" (Velvet deploys via the
+#      official Pages action, bypassing the gh-pages branch).
+# ──────────────────────────────────────────────────────────────────────────────
+
+# GitHub user/org and repository that hold the monitoring data. Both required.
+owner: your-username
+repo: your-status-repo
+
+# The services to monitor. Each entry becomes a row/card on the page.
+# `name` + `url` are enough; the commented fields show the common optional ones.
+sites:
+  - name: Website
+    url: https://example.com
+  - name: API
+    url: https://api.example.com/health
+    # method: GET                     # HTTP verb (default GET)
+    # expectedStatusCodes: [200, 401] # codes that count as "up" (default 2xx)
+    # maxResponseTime: 5000           # ms before a response is "degraded"
+    # headers: ["Authorization: Bearer $TOKEN"]   # $SECRET reads repo secrets
+
+  # ── IPv4 / IPv6 per service ─────────────────────────────────────────────────
+  # A plain check runs from the GitHub runner (IPv4-only). To check IPv6 too, route
+  # it through Globalping (dual-stack probes) and add a GLOBALPING_TOKEN repo secret.
+  # Choose per service:
+  #   * IPv4 only -> a normal check (like the two above).
+  #   * IPv6 only -> one Globalping check; end the name in "IPv6" so Velvet labels it:
+  #       - name: Mail IPv6
+  #         url: https://mail.example.com
+  #         type: globalping
+  #         check: http
+  #         ipv6: true
+  #   * Both, in one card -> the normal check PLUS a sibling whose slug ends "-ipv6":
+  #       - name: API IPv6      # slug "api-ipv6" -> folded into the "api" card
+  #         url: https://api.example.com/health
+  #         type: globalping
+  #         check: http
+  #         ipv6: true
+  # ────────────────────────────────────────────────────────────────────────────
+
+  # A service's "slug" (used for icons below) is its lowercased, hyphenated name:
+  # "API" → "api", "Developer Site" → "developer-site".
+
+status-website:
+  # Brand name beside the logo; also the browser tab title ("<name> — Status").
+  name: Example
+  # cname: status.example.com             # custom domain (Velvet writes the CNAME)
+  # logoUrl: https://example.com/logo.svg # shown instead of the name; links to /
+  # Navbar links (top-right). The logo always links to "/". `[]` = no links.
+  # To add some:
+  #   navbar:
+  #     - { title: History, href: "https://github.com/$OWNER/$REPO/issues" }
+  navbar: []
+
+  # ── Velvet appearance (https://github.com/phranck/velvet) ───────────────────
+  # NOTE: stock Upptime appearance fields (theme, introTitle, customHeadHtml, …)
+  # do nothing with Velvet — configure the look here instead.
+  velvet:
+    layout: cards           # "cards" = one card per service; "grouped" = one shared card
+    logoHeight: 72           # logo height in px (width scales); raise for a taller logo
+    # defaultRange: 30d      # range pre-selected on first visit (24h / 7d / 30d / 90d / 1yr)
+    # showPoweredBy: false   # hide the footer "Powered by Velvet + Upptime" credit
+    # showSubscribe: false   # hide the footer Subscribe (RSS) link
+    accent: "#6366f1"       # primary / operational colour (any hex)
+    accentDeg: "#d29922"    # degraded (amber)
+    accentDown: "#f85149"   # down (red)
+    # fontSans: "Inter"          # UI font family (must be browser-available)
+    # fontMono: "JetBrains Mono" # monospace font family
+    # dataBranch: main           # branch holding history/summary.json (default main)
+    # Web analytics (optional) — Velvet injects a tracker only when configured.
+    # Set either, both, or neither (you handle any consent/privacy requirements):
+    # umami:
+    #   websiteId: "xxxxxxxx-xxxx-xxxx-xxxx"   # your Umami site's data-website-id
+    #   src: "https://analytics.example.com/script.js"  # full Umami script URL
+    # googleAnalytics: "G-XXXXXXXXXX"          # Google Analytics 4 measurement ID
+    # SEO (optional). Velvet is fully indexable out of the box: on each deploy it
+    # writes the page title, description, canonical, Open Graph / Twitter tags,
+    # robots.txt and sitemap.xml automatically. These are OVERRIDES — set only what
+    # you want to change; anything you omit stays auto-derived.
+    # seo:
+    #   title: "Acme System Status"               # default: "<name> — Status"
+    #   description: "Real-time uptime for Acme."  # default: a line built from the name
+    #   image: "https://acme.example/og.png"       # social card; default: the auto-generated status card
+    # Per-service icon: key = service slug, value = a Phosphor icon.
+    # Browse + search the full set at https://phosphoricons.com, then prefix the
+    # name with "ph-" (e.g. the "database" icon -> ph-database). Velvet renders it
+    # in the duotone weight. Unlisted services fall back to a sensible default.
+    icons:
+      website: ph-globe
+      api: ph-brackets-curly

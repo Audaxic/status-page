@@ -1,0 +1,42 @@
+# Manual maintenance banner — the fallback for planned work that is NOT a deploy.
+# Run from the Actions tab ("Run workflow"), the GitHub mobile app, or:
+#   gh workflow run maintenance-switch.yml -f message="DB upgrade" -f services="api" -f minutes=45
+#
+# Safety: inputs are read via the github-script `context` object, never interpolated
+# into a shell `run:` step.
+name: Maintenance switch
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "What is happening (shown on the status page)"
+        required: true
+      services:
+        description: "Affected service slugs, comma-separated (optional)"
+        required: false
+      minutes:
+        description: "Expected duration in minutes"
+        required: false
+        default: "30"
+permissions:
+  issues: write
+jobs:
+  open:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const i = context.payload.inputs || {};
+            const minutes = Number(i.minutes) || 30;
+            const start = new Date();
+            const end = new Date(start.getTime() + minutes * 60000);
+            const degraded = String(i.services || "").trim();
+            const meta = `<!-- start: ${start.toISOString()} end: ${end.toISOString()}${degraded ? ` expectedDegraded: ${degraded}` : ""} -->`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🛠 ${i.message}`,
+              labels: ["maintenance"],
+              body: `${meta}\n\n${i.message}\n\nClose this issue to clear the banner.`,
+            });

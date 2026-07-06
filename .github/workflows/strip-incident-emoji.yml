@@ -1,0 +1,35 @@
+# Upptime hardcodes a leading status emoji in incident issue titles
+# (down "… is down" / degraded "… has degraded performance") — there is no
+# .upptimerc.yml option to disable it. This workflow strips any leading emoji
+# from a newly opened incident issue so the titles read cleanly.
+#
+# The issue title is passed in via `env` (never interpolated into a shell or
+# script body), so there is no workflow-injection surface.
+name: Strip incident emoji
+on:
+  issues:
+    types: [opened]
+permissions:
+  issues: write
+jobs:
+  strip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        with:
+          script: |
+            const title = process.env.ISSUE_TITLE || "";
+            // Drop leading pictographic chars, variation selectors, ZWJ and spaces.
+            const stripped = title.replace(/^[\p{Extended_Pictographic}️‍\s]+/u, "").trim();
+            if (stripped && stripped !== title) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: Number(process.env.ISSUE_NUMBER),
+                title: stripped,
+              });
+              core.info(`Stripped emoji from issue #${process.env.ISSUE_NUMBER}`);
+            }
