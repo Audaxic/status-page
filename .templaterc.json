@@ -1,3 +1,0 @@
-{
-  "files": [".github/**/*", "!.github/workflows/site.yml", "!.github/workflows/velvet.yml"]
-}
