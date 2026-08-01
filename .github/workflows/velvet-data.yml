@@ -1,0 +1,49 @@
+# Keep the Velvet data documents (velvet-data/v1/{status,response-times,incidents}.json)
+# on `main` in sync with the Upptime monitoring data. The Velvet site fetches these
+# documents from the raw.githubusercontent.com URLs baked into config.json at runtime,
+# so no rebuild/redeploy is needed when they change — only the documents themselves.
+#
+# Triggered after every Upptime data workflow (uptime every 5 min, response-time,
+# summary, graphs) and on issue changes (incidents/maintenance are GitHub issues).
+# The exporter is deterministic from git history + the Issues API, so a cancelled or
+# failed run self-heals on the next trigger. Pushes from GITHUB_TOKEN do not re-trigger
+# workflows, so there is no recursion.
+name: Velvet data
+on:
+  workflow_run:
+    workflows:
+      - Uptime CI
+      - Response Time CI
+      - Summary CI
+      - Graphs CI
+    types: [completed]
+  issues:
+    types: [opened, closed, reopened, edited, labeled, unlabeled]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: velvet-data
+  cancel-in-progress: true
+jobs:
+  export:
+    name: Export Velvet documents
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate Velvet data documents
+        run: node scripts/velvet-export.mjs
+      - name: Commit changes
+        run: |
+          git add velvet-data/v1
+          if git diff --cached --quiet; then
+            echo "No Velvet data changes"
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "Update Velvet status documents [skip ci]"
+          git push
