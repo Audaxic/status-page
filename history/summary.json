@@ -40,19 +40,19 @@
     "url": "https://memory-api.audaxic.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/memory-api.audaxic.com.ico",
     "slug": "memory-api",
-    "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "99.99%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
-    "time": 327,
-    "timeDay": 480,
-    "timeWeek": 656,
-    "timeMonth": 327,
-    "timeYear": 327,
+    "status": "up",
+    "uptime": "99.75%",
+    "uptimeDay": "93.41%",
+    "uptimeWeek": "99.06%",
+    "uptimeMonth": "99.75%",
+    "uptimeYear": "99.75%",
+    "time": 341,
+    "timeDay": 567,
+    "timeWeek": 666,
+    "timeMonth": 341,
+    "timeYear": 341,
     "dailyMinutesDown": {
-      "2026-08-01": 0
+      "2026-08-01": 95
     }
   }
 ]
