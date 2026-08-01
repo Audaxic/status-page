@@ -34,6 +34,10 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Prepare Velvet build data
+        run: |
+          mkdir -p velvet-data/v1
+          cp history/summary.json velvet-data/v1/status.json
       - name: Build Velvet site
         uses: phranck/velvet@v1
         with:
