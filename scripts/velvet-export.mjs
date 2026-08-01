@@ -214,7 +214,16 @@ function dailyAvailability(samples, generatedAt) {
   return availability;
 }
 
-function responseSamples(samples) {
+// Retain at most this many days of response-time samples (the site's year chart
+// only spans 365 days; older samples are never rendered and would only bloat the
+// document the browser downloads on every visit). Override for testing with
+// VELVET_RESPONSE_RETENTION_DAYS.
+const RESPONSE_RETENTION_DAYS = Number(
+  process.env.VELVET_RESPONSE_RETENTION_DAYS ?? 366,
+);
+
+function responseSamples(samples, generatedAt) {
+  const cutoff = Date.parse(generatedAt) - RESPONSE_RETENTION_DAYS * DAY_MS;
   const seen = new Set();
   const result = [];
   for (const sample of samples) {
@@ -222,6 +231,9 @@ function responseSamples(samples) {
       continue;
     }
     seen.add(sample.lastUpdated);
+    if (Date.parse(sample.lastUpdated) < cutoff) {
+      continue;
+    }
     result.push({
       timestamp: sample.lastUpdated,
       responseTimeMs:
@@ -582,7 +594,7 @@ async function main() {
       serviceId: slug,
       checkId: `${slug}-ipv4`,
       protocol: "ipv4",
-      samples: responseSamples(samples),
+      samples: responseSamples(samples, generatedAt),
     });
   }
 

@@ -1,0 +1,8 @@
+name = "status-page-dispatch"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+
+# Cron-only dispatcher; the workers.dev URL exists purely for manual triggers
+# (POST /dispatch?type=uptime|response_time with the GITHUB_TOKEN as bearer).
+[triggers]
+crons = ["*/10 * * * *", "*/30 * * * *"]
