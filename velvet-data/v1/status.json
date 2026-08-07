@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-07T01:21:06.273Z",
+  "generatedAt": "2026-08-07T01:31:20.279Z",
   "monitoringStartedAt": "2026-07-06T06:00:00.033Z",
   "services": [
     {
@@ -12,8 +12,8 @@
           "id": "audaxic-brand-site-ipv4",
           "protocol": "ipv4",
           "status": "operational",
-          "checkedAt": "2026-08-07T00:30:56.790Z",
-          "responseTimeMs": 92
+          "checkedAt": "2026-08-07T01:31:06.674Z",
+          "responseTimeMs": 299
         }
       ],
       "dailyAvailability": [
@@ -179,7 +179,7 @@
         },
         {
           "date": "2026-08-07",
-          "monitoredSeconds": 4866,
+          "monitoredSeconds": 5480,
           "unavailableSeconds": 0
         }
       ]
@@ -193,8 +193,8 @@
           "id": "audaxic-memory-site-ipv4",
           "protocol": "ipv4",
           "status": "operational",
-          "checkedAt": "2026-08-07T00:30:56.973Z",
-          "responseTimeMs": 146
+          "checkedAt": "2026-08-07T01:31:06.998Z",
+          "responseTimeMs": 288
         }
       ],
       "dailyAvailability": [
@@ -360,7 +360,7 @@
         },
         {
           "date": "2026-08-07",
-          "monitoredSeconds": 4866,
+          "monitoredSeconds": 5480,
           "unavailableSeconds": 0
         }
       ]
@@ -374,8 +374,8 @@
           "id": "memory-api-ipv4",
           "protocol": "ipv4",
           "status": "operational",
-          "checkedAt": "2026-08-07T00:30:57.414Z",
-          "responseTimeMs": 414
+          "checkedAt": "2026-08-07T01:31:07.933Z",
+          "responseTimeMs": 907
         }
       ],
       "dailyAvailability": [
@@ -541,7 +541,7 @@
         },
         {
           "date": "2026-08-07",
-          "monitoredSeconds": 4866,
+          "monitoredSeconds": 5480,
           "unavailableSeconds": 0
         }
       ]
