@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-01T23:50:43.814Z",
+  "generatedAt": "2026-09-02T00:00:23.871Z",
   "monitoringStartedAt": "2026-07-06T06:00:00.033Z",
   "services": [
     {
@@ -304,7 +304,12 @@
         },
         {
           "date": "2026-09-01",
-          "monitoredSeconds": 85843,
+          "monitoredSeconds": 86400,
+          "unavailableSeconds": 0
+        },
+        {
+          "date": "2026-09-02",
+          "monitoredSeconds": 23,
           "unavailableSeconds": 0
         }
       ]
@@ -610,7 +615,12 @@
         },
         {
           "date": "2026-09-01",
-          "monitoredSeconds": 85843,
+          "monitoredSeconds": 86400,
+          "unavailableSeconds": 0
+        },
+        {
+          "date": "2026-09-02",
+          "monitoredSeconds": 23,
           "unavailableSeconds": 0
         }
       ]
@@ -916,7 +926,12 @@
         },
         {
           "date": "2026-09-01",
-          "monitoredSeconds": 85843,
+          "monitoredSeconds": 86400,
+          "unavailableSeconds": 0
+        },
+        {
+          "date": "2026-09-02",
+          "monitoredSeconds": 23,
           "unavailableSeconds": 0
         }
       ]
