@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-18T12:02:06.220Z",
+  "generatedAt": "2026-09-18T12:31:32.072Z",
   "monitoringStartedAt": "2026-07-06T06:00:00.033Z",
   "series": [
     {
@@ -8583,6 +8583,10 @@
         {
           "timestamp": "2026-09-18T12:01:51.064Z",
           "responseTimeMs": 162
+        },
+        {
+          "timestamp": "2026-09-18T12:31:17.573Z",
+          "responseTimeMs": 250
         }
       ]
     },
@@ -17150,6 +17154,10 @@
         {
           "timestamp": "2026-09-18T12:01:51.321Z",
           "responseTimeMs": 212
+        },
+        {
+          "timestamp": "2026-09-18T12:31:17.924Z",
+          "responseTimeMs": 324
         }
       ]
     },
@@ -25725,6 +25733,10 @@
         {
           "timestamp": "2026-09-18T12:01:51.943Z",
           "responseTimeMs": 595
+        },
+        {
+          "timestamp": "2026-09-18T12:31:18.860Z",
+          "responseTimeMs": 918
         }
       ]
     }
