@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-03T18:51:51.441Z",
+  "generatedAt": "2026-11-03T20:03:32.782Z",
   "events": [
     {
       "id": "incident-1",
@@ -13,6 +13,18 @@
       ],
       "startsAt": "2026-08-01T09:22:11.000Z",
       "endsAt": "2026-08-01T10:57:06.000Z"
+    },
+    {
+      "id": "incident-4",
+      "kind": "incident",
+      "state": "open",
+      "title": "Memory API is down",
+      "summary": "In [`d2e3e0c`](https://github.com/Audaxic/status-page/commit/d2e3e0cfa8757cb41beb42aadc37dfd10000961c\n), Memory API (https://memory-api.audaxic.com/health) was **down**:\n- HTTP code: 503\n- Response time: 5442 ms\n",
+      "affectedServiceIds": [
+        "memory-api"
+      ],
+      "startsAt": "2026-11-03T20:02:30.000Z",
+      "endsAt": null
     }
   ]
 }
