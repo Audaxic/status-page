@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T09:11:33.581Z",
+  "generatedAt": "2026-11-10T09:21:26.793Z",
   "monitoringStartedAt": "2026-07-06T06:00:00.033Z",
   "services": [
     {
@@ -654,7 +654,7 @@
         },
         {
           "date": "2026-11-10",
-          "monitoredSeconds": 33093,
+          "monitoredSeconds": 33686,
           "unavailableSeconds": 0
         }
       ]
@@ -1310,7 +1310,7 @@
         },
         {
           "date": "2026-11-10",
-          "monitoredSeconds": 33093,
+          "monitoredSeconds": 33686,
           "unavailableSeconds": 0
         }
       ]
@@ -1966,7 +1966,7 @@
         },
         {
           "date": "2026-11-10",
-          "monitoredSeconds": 33093,
+          "monitoredSeconds": 33686,
           "unavailableSeconds": 0
         }
       ]
