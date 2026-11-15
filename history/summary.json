@@ -11,7 +11,7 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 212,
-    "timeDay": 182,
+    "timeDay": 181,
     "timeWeek": 281,
     "timeMonth": 238,
     "timeYear": 212,
@@ -29,7 +29,7 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 225,
-    "timeDay": 202,
+    "timeDay": 203,
     "timeWeek": 246,
     "timeMonth": 264,
     "timeYear": 225,
@@ -40,15 +40,15 @@
     "url": "https://memory-api.audaxic.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/memory-api.audaxic.com.ico",
     "slug": "memory-api",
-    "status": "down",
-    "uptime": "95.50%",
-    "uptimeDay": "99.94%",
+    "status": "up",
+    "uptime": "95.49%",
+    "uptimeDay": "99.32%",
     "uptimeWeek": "84.69%",
-    "uptimeMonth": "80.61%",
-    "uptimeYear": "95.50%",
+    "uptimeMonth": "80.59%",
+    "uptimeYear": "95.49%",
     "time": 715,
-    "timeDay": 742,
-    "timeWeek": 756,
+    "timeDay": 737,
+    "timeWeek": 757,
     "timeMonth": 772,
     "timeYear": 715,
     "dailyMinutesDown": {
@@ -60,7 +60,7 @@
       "2026-11-05": 1440,
       "2026-11-04": 1440,
       "2026-11-03": 237,
-      "2026-11-15": 1
+      "2026-11-15": 10
     }
   }
 ]
