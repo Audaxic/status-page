@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-25T23:50:49.977Z",
+  "generatedAt": "2026-11-26T00:01:00.237Z",
   "monitoringStartedAt": "2026-07-06T06:00:00.033Z",
   "services": [
     {
@@ -12,8 +12,8 @@
           "id": "audaxic-brand-site-ipv4",
           "protocol": "ipv4",
           "status": "operational",
-          "checkedAt": "2026-11-25T23:30:36.517Z",
-          "responseTimeMs": 230
+          "checkedAt": "2026-11-26T00:00:35.157Z",
+          "responseTimeMs": 168
         }
       ],
       "dailyAvailability": [
@@ -729,7 +729,12 @@
         },
         {
           "date": "2026-11-25",
-          "monitoredSeconds": 85849,
+          "monitoredSeconds": 86400,
+          "unavailableSeconds": 0
+        },
+        {
+          "date": "2026-11-26",
+          "monitoredSeconds": 60,
           "unavailableSeconds": 0
         }
       ]
@@ -743,8 +748,8 @@
           "id": "audaxic-memory-site-ipv4",
           "protocol": "ipv4",
           "status": "operational",
-          "checkedAt": "2026-11-25T23:30:36.725Z",
-          "responseTimeMs": 178
+          "checkedAt": "2026-11-26T00:00:35.442Z",
+          "responseTimeMs": 241
         }
       ],
       "dailyAvailability": [
@@ -1460,7 +1465,12 @@
         },
         {
           "date": "2026-11-25",
-          "monitoredSeconds": 85849,
+          "monitoredSeconds": 86400,
+          "unavailableSeconds": 0
+        },
+        {
+          "date": "2026-11-26",
+          "monitoredSeconds": 60,
           "unavailableSeconds": 0
         }
       ]
@@ -1474,8 +1484,8 @@
           "id": "memory-api-ipv4",
           "protocol": "ipv4",
           "status": "operational",
-          "checkedAt": "2026-11-25T23:30:37.383Z",
-          "responseTimeMs": 635
+          "checkedAt": "2026-11-26T00:00:35.930Z",
+          "responseTimeMs": 451
         }
       ],
       "dailyAvailability": [
@@ -2191,7 +2201,12 @@
         },
         {
           "date": "2026-11-25",
-          "monitoredSeconds": 85849,
+          "monitoredSeconds": 86400,
+          "unavailableSeconds": 0
+        },
+        {
+          "date": "2026-11-26",
+          "monitoredSeconds": 60,
           "unavailableSeconds": 0
         }
       ]
